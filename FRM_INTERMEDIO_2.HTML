@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recibir Parámetro en la URL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            text-align: center;
+        }
+        .button {
+            display: block;
+            margin: 15px 0;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #6c5ce7;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .button:hover {
+            background-color: #4e38b1;
+            transform: scale(1.05);
+        }
+        /* Estilo para los textos de los parámetros */
+        .param-text {
+            background-color: rgba(255, 255, 255, 0.2); /* Fondo translúcido */
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            width: 60%;
+            max-width: 400px;
+            margin: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="container">
+        <a href="https://drive.google.com/file/d/1_0jJO1pDQNNNSU3vj755_Ojy_CO53YYd/view" class="button" target="_blank">Abrir PDF</a>
+        <a href="https://www.google.com" class="button">Carga Tiempos</a>
+        <a href="https://www.facebook.com" class="button">Otro</a>
+    </div>
+    <!-- Elementos de los parámetros con la clase 'param-text' para estilizar -->
+    <p id="TXT_CODIGO" class="param-text"></p>
+    <p id="TXT_DESCRIPCION" class="param-text"></p>
+
+    <script>
+        // Función para obtener el parámetro de la URL
+        function obtenerParametro(idParam) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(idParam);
+        }
+
+        // Obtener el parámetro 'PZA_CODIGO' de la URL y mostrarlo
+        const param_cod = obtenerParametro('PZA_CODIGO');
+        const param_desc = obtenerParametro('PZA_DESCRIPCION');
+        const TXT_CODIGO = document.getElementById('TXT_CODIGO');
+        const TXT_DESCRIPCION = document.getElementById('TXT_DESCRIPCION');
+
+        if (param_cod) {
+            TXT_CODIGO.textContent = `CODIGO: ${param_cod}`;
+        } else {
+            TXT_CODIGO.textContent = "CODIGO: --NO ENCONTRADO--";
+        }
+
+        if (param_desc) {
+            TXT_DESCRIPCION.textContent = `DESCRIPCION: ${param_desc}`;
+        } else {
+            TXT_DESCRIPCION.textContent = "DESCRIPCION: --NO ENCONTRADO--";
+        }
+    </script>
+</body>
+</html>
