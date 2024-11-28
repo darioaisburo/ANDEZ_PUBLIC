@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botones Verticales</title>
+    <title>Recibir Parámetro en la URL</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
             background: linear-gradient(135deg, #74b9ff, #0984e3);
-        }
-        .container {
+            color: white;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 15px; /* Espaciado entre botones */
         }
         .button {
             display: block;
+            margin: 15px 0;
             padding: 15px 30px;
             font-size: 18px;
             font-weight: bold;
@@ -37,16 +35,34 @@
             background-color: #4e38b1;
             transform: scale(1.05);
         }
-        .button:active {
-            background-color: #341a78;
-        }
     </style>
 </head>
 <body>
+    <h1>Bienvenido</h1>
+    <p id="parametro"></p>
     <div class="container">
-        <a href="https://drive.google.com/file/d/1_0jJO1pDQNNNSU3vj755_Ojy_CO53YYd/view" class="button">Visualizador PDF</a>
-        <a href="https://www.facebook.com" class="button">Carga de Tiempos</a>
-        <a href="https://www.twitter.com" class="button">Otro</a>
+        <a href="https://example.com/archivo.pdf" class="button" target="_blank">Abrir PDF</a>
+        <a href="https://www.google.com" class="button">Google</a>
+        <a href="https://www.facebook.com" class="button">Facebook</a>
     </div>
+
+    <script>
+        // Función para obtener el parámetro de la URL
+        function obtenerParametro(nombre) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(nombre);
+        }
+
+        // Obtener el parámetro 'nombre' de la URL y mostrarlo
+        const parametro = obtenerParametro('nombre');
+        const elemento = document.getElementById('parametro');
+
+        if (parametro) {
+            elemento.textContent = `Hola, ${parametro}! Bienvenido a nuestra página.`;
+        } else {
+            elemento.textContent = "No se encontró ningún parámetro en la URL.";
+        }
+    </script>
 </body>
 </html>
+
