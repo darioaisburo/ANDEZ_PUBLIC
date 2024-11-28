@@ -35,17 +35,22 @@
             background-color: #4e38b1;
             transform: scale(1.05);
         }
-        /* Estilo para los textos de los parámetros */
-        .param-text {
+        /* Estilo para el contenedor de los parámetros */
+        .param-container {
             background-color: rgba(255, 255, 255, 0.2); /* Fondo translúcido */
             border-radius: 10px;
-            padding: 15px;
-            font-size: 14px;
+            padding: 20px;
+            font-size: 20px;
             font-weight: bold;
-            width: 60%;
+            width: 80%;
             max-width: 400px;
-            margin: 10px 0;
+            margin: 20px 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-align: left; /* Alineamos el texto a la izquierda */
+        }
+        /* Estilo para las líneas dentro del contenedor */
+        .param-line {
+            margin: 10px 0;
         }
     </style>
 </head>
@@ -53,12 +58,15 @@
    
     <div class="container">
         <a href="https://drive.google.com/file/d/1_0jJO1pDQNNNSU3vj755_Ojy_CO53YYd/view" class="button" target="_blank">Abrir PDF</a>
-        <a href="https://www.google.com" class="button">Carga Tiempos</a>
-        <a href="https://www.facebook.com" class="button">Otro</a>
+        <a href="https://www.google.com" class="button">Google</a>
+        <a href="https://www.facebook.com" class="button">Facebook</a>
     </div>
-    <!-- Elementos de los parámetros con la clase 'param-text' para estilizar -->
-    <p id="TXT_CODIGO" class="param-text"></p>
-    <p id="TXT_DESCRIPCION" class="param-text"></p>
+
+    <!-- Contenedor con ambos parámetros -->
+    <div id="param-container" class="param-container">
+        <p id="TXT_CODIGO" class="param-line"></p>
+        <p id="TXT_DESCRIPCION" class="param-line"></p>
+    </div>
 
     <script>
         // Función para obtener el parámetro de la URL
@@ -73,12 +81,14 @@
         const TXT_CODIGO = document.getElementById('TXT_CODIGO');
         const TXT_DESCRIPCION = document.getElementById('TXT_DESCRIPCION');
 
+        // Mostrar el código
         if (param_cod) {
             TXT_CODIGO.textContent = `CODIGO: ${param_cod}`;
         } else {
             TXT_CODIGO.textContent = "CODIGO: --NO ENCONTRADO--";
         }
 
+        // Mostrar la descripción
         if (param_desc) {
             TXT_DESCRIPCION.textContent = `DESCRIPCION: ${param_desc}`;
         } else {
