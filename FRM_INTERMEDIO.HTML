@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botones Bonitos</title>
+    <title>Botones Verticales</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,10 +16,12 @@
         }
         .container {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Espaciado entre botones */
         }
         .button {
-            display: inline-block;
-            margin: 10px;
+            display: block;
             padding: 15px 30px;
             font-size: 18px;
             font-weight: bold;
