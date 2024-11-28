@@ -65,11 +65,11 @@
         } else {
             TXT_CODIGO.textContent = "CODIGO: --NO ENCONTRADO--";
         }
-        if (param_desc) {
-            TXT_DESCRIPCION.textContent = `DESCRIPCION: ${param_cod}`;
-        } else {
-            TXT_DESCRIPCION.textContent = "DESCRIPCION: --NO ENCONTRADO--";
-        }
+      if (param_desc) {
+    TXT_DESCRIPCION.textContent = `DESCRIPCION: ${param_cod}`;  // Aquí estás usando param_cod en vez de param_desc
+} else {
+    TXT_DESCRIPCION.textContent = "DESCRIPCION: --NO ENCONTRADO--";
+}
     </script>
 </body>
 </html>
