@@ -53,14 +53,14 @@
             return urlParams.get(nombre);
         }
 
-        // Obtener el parámetro 'nombre' de la URL y mostrarlo
-        const parametro = obtenerParametro('nombre');
+        // Obtener el parámetro 'PZA_CODIGO' de la URL y mostrarlo
+        const parametro = obtenerParametro('PZA_CODIGO');
         const elemento = document.getElementById('parametro');
 
         if (parametro) {
-            elemento.textContent = `Hola, ${parametro}! Bienvenido a nuestra página.`;
+            elemento.textContent = `CODIGO DE PIEZA: ${parametro}`;
         } else {
-            elemento.textContent = "No se encontró ningún parámetro en la URL.";
+            elemento.textContent = "CODIGO DE PIEZA: --NO ENCONTRADO--";
         }
     </script>
 </body>
