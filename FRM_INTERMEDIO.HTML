@@ -35,6 +35,18 @@
             background-color: #4e38b1;
             transform: scale(1.05);
         }
+        /* Estilo para los textos de los parámetros */
+        .param-text {
+            background-color: rgba(255, 255, 255, 0.2); /* Fondo translúcido */
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            width: 80%;
+            max-width: 400px;
+            margin: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -44,8 +56,9 @@
         <a href="https://www.google.com" class="button">Google</a>
         <a href="https://www.facebook.com" class="button">Facebook</a>
     </div>
-    <p id="TXT_CODIGO"></p>
-    <p id="TXT_DESCRIPCION"></p>
+    <!-- Elementos de los parámetros con la clase 'param-text' para estilizar -->
+    <p id="TXT_CODIGO" class="param-text"></p>
+    <p id="TXT_DESCRIPCION" class="param-text"></p>
 
     <script>
         // Función para obtener el parámetro de la URL
@@ -58,18 +71,20 @@
         const param_cod = obtenerParametro('PZA_CODIGO');
         const param_desc = obtenerParametro('PZA_DESCRIPCION');
         const TXT_CODIGO = document.getElementById('TXT_CODIGO');
-        const TXT_DESCRIPCION= document.getElementById('TXT_DESCRIPCION');
+        const TXT_DESCRIPCION = document.getElementById('TXT_DESCRIPCION');
 
         if (param_cod) {
             TXT_CODIGO.textContent = `CODIGO: ${param_cod}`;
         } else {
             TXT_CODIGO.textContent = "CODIGO: --NO ENCONTRADO--";
         }
-      if (param_desc) {
-    TXT_DESCRIPCION.textContent = `DESCRIPCION: ${param_cod}`;  // Aquí estás usando param_cod en vez de param_desc
-} else {
-    TXT_DESCRIPCION.textContent = "DESCRIPCION: --NO ENCONTRADO--";
-}
+
+        if (param_desc) {
+            TXT_DESCRIPCION.textContent = `DESCRIPCION: ${param_desc}`;
+        } else {
+            TXT_DESCRIPCION.textContent = "DESCRIPCION: --NO ENCONTRADO--";
+        }
     </script>
 </body>
 </html>
+
